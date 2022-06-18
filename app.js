@@ -25,11 +25,19 @@ app.get('/v1/explorers', (req, res) => {
 // correr node app.js en una terminal y despues comando curl +URL en otra terminal
 // 
 
-app.get('/v1/explorers/:id', (req, res) => {
+app.get('/v1/explorers/:id', (req, res) => { //son para regresar informacion
     console.log(`GET BY ID Explorers V1 API ${new Date()}`)
     const explorer1 = { id: 1, name: "ExplorarEdu" }
     res.status(200).json(explorer1)
 })
+
+app.post('/v1/explorers', (req, res) => { //sirve para crear un nuevo registro
+    console.log(`POST Explorers V1 API ${new Date()}`)
+    //agregar logica para persistir en la base de datos
+    console.log(req.body)   //parametros del request
+    res.status(200).json({ message: "Creado exitosamente" })
+})
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port: ${port}`)
