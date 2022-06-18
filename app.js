@@ -21,8 +21,16 @@ app.get('/v1/explorers', (req, res) => {
 })
 
 // Inicializando la App y depues consultar localhost:3000/v1/explorers
-//para verificar que la app esta corriendo correctamente en el navegador o terminal comando curl +URL
+//para verificar que la app esta corriendo correctamente en el navegador o terminal 
+// correr node app.js en una terminal y despues comando curl +URL en otra terminal
 // 
+
+app.get('/v1/explorers/:id', (req, res) => {
+    console.log(`GET BY ID Explorers V1 API ${new Date()}`)
+    const explorer1 = { id: 1, name: "ExplorarEdu" }
+    res.status(200).json(explorer1)
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port: ${port}`)
 })
